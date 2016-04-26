@@ -25,6 +25,8 @@ class ResponseHandler
 {
     public:
         ResponseHandler();
+
+        vector<string> ParseString(string line, string delim);
     protected:
     private:
 };

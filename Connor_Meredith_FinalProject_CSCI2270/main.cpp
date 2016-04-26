@@ -4,6 +4,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    ResponseHandler mimic = ResponseHandler();
+
     return 0;
 }
