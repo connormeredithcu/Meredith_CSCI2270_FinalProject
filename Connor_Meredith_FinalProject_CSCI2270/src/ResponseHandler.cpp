@@ -4,8 +4,3 @@ ResponseHandler::ResponseHandler()
 {
     //ctor
 }
-
-ResponseHandler::~ResponseHandler()
-{
-    //dtor
-}
