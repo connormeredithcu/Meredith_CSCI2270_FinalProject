@@ -50,6 +50,8 @@ class ResponseHandler
         vector<string> ParseString(string line, string delim);
     protected:
     private:
+        SearchNode * head;
+        bool bSTInitialized;
 };
 
 #endif // RESPONSEHANDLER_H

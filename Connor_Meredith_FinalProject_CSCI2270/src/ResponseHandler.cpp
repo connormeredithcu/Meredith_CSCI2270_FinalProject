@@ -2,6 +2,11 @@
 
 ResponseHandler::ResponseHandler()
 {
+    head->key = nullptr;
+    head->leftChild = nullptr;
+    head->rightChild = nullptr;
+    head->parent = nullptr;
+    bSTInitialized = false;
     //ctor
 }
 
