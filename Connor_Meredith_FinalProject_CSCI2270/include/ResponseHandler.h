@@ -63,6 +63,11 @@ class ResponseHandler
 
         SearchNode * eosHelper;
         ResponseNode * end_of_sentence;
+
+        ResponseNode * FindExistingWord(string word);
+
+        vector<ResponseChild> firstWords;
+        vector<string> sentences;
 };
 
 #endif // RESPONSEHANDLER_H

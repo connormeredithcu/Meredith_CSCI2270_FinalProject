@@ -31,8 +31,33 @@ vector<string> ResponseHandler::ParseString(string line, string delim)
     return parsedString;
 }
 
+ResponseNode * ResponseHandler::FindExistingWord (string word)
+{
+    SearchNode * temp = head;
+    while (temp)
+    {
+        if (temp->key->key == word)
+        {
+            return temp->key;
+        }
+        if (word.compare(temp->key->key) < 0)
+        {
+            temp = temp->leftChild;
+        }
+        else
+        {
+            temp = temp->rightChild;
+        }
+    }
+    return nullptr;
+}
+
 void ResponseHandler::AddSentence(string sentence)
 {
+    if (sentence == "")
+    {
+        return;
+    }
     vector<string> words = ParseString(sentence, " ");
 
     vector<SearchNode*> wordLocations;
@@ -142,4 +167,27 @@ void ResponseHandler::AddSentence(string sentence)
 
         //cout << "Finished connecting " << parentWord->key << " and " << childWord->key << " !" << endl;
     }
+
+    //Finally, we just add the first word to our first word variable or update an existing entry
+    string firstWord = words.at(0);
+    bool flag = true;
+    for (int i = 0; i < firstWords.size(); i++)
+    {
+        if (firstWords.at(i).child->key == firstWord)
+        {
+            firstWords.at(i).numTimesParented++;
+            flag = false;
+            break;
+        }
+    }
+    //In this case, we've never used this certain word as the first word in the sentence
+    if (flag)
+    {
+        ResponseNode * tmp = FindExistingWord(firstWord);
+        ResponseChild tempest;
+        tempest.child = tmp;
+        tempest.numTimesParented = 1;
+        firstWords.push_back(tempest);
+    }
+
 }
