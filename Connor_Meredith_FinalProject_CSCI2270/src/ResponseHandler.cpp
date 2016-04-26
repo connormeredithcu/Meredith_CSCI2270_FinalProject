@@ -2,11 +2,15 @@
 
 ResponseHandler::ResponseHandler()
 {
+    head = new SearchNode;
     head->key = nullptr;
     head->leftChild = nullptr;
     head->rightChild = nullptr;
     head->parent = nullptr;
     bSTInitialized = false;
+
+    end_of_sentence = new ResponseNode ("");
+    end_of_sentence->numTimesUsed = 0;
     //ctor
 }
 

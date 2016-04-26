@@ -19,6 +19,12 @@ struct ResponseNode
     string key;
     vector<ResponseChild> children;
     double numTimesUsed;
+
+    ResponseNode (string name)
+    {
+        numTimesUsed = 0;
+        key = name;
+    }
 };
 
 //This structure contains an edge weight and location of a response node. E.g., the bracketed
@@ -52,6 +58,8 @@ class ResponseHandler
     private:
         SearchNode * head;
         bool bSTInitialized;
+
+        ResponseNode * end_of_sentence;
 };
 
 #endif // RESPONSEHANDLER_H
