@@ -56,6 +56,8 @@ class ResponseHandler
         vector<string> ParseString(string line, string delim);
 
         void AddSentence (string sentence);
+
+        vector<ResponseChild> firstWords;
     protected:
     private:
         SearchNode * head;
@@ -66,7 +68,7 @@ class ResponseHandler
 
         ResponseNode * FindExistingWord(string word);
 
-        vector<ResponseChild> firstWords;
+
         vector<string> sentences;
 };
 

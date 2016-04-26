@@ -27,5 +27,24 @@ void TakeSentence(ResponseHandler * g)
 
 void ReadFileSentences(ResponseHandler * g)
 {
+    ifstream infile;
+    string fname;
+    cout << "Please enter a filename:" << endl
+         << "> "                              ;
+    cin >> fname;
+    infile.open(fname);
 
+    if (!infile.good())
+    {
+        cout << "Could not open file successfully. Please check that it exists." << endl;
+        return;
+    }
+
+    string line;
+    while (getline(infile, line))
+    {
+        g->AddSentence(line);
+    }
+
+    cout << "Successfully read in sentences." << endl;
 }

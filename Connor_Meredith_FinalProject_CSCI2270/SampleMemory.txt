@@ -1,0 +1,4 @@
+Rex is a dog.
+Fifi is a cat.
+Bobo is a circus boy.
+Every dog would like a treat.
