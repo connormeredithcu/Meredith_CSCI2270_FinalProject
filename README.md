@@ -1,2 +1,2 @@
 # Meredith_CSCI2270_FinalProject
-This is a test! This repository is by Connor Meredith
+This is the repository for my final project in CSCI 2270.
