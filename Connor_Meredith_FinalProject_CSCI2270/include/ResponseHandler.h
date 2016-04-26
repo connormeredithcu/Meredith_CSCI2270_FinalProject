@@ -22,7 +22,7 @@ struct ResponseNode
 
     ResponseNode (string name)
     {
-        numTimesUsed = 0;
+        numTimesUsed = 0.0;
         key = name;
     }
 };
@@ -54,11 +54,14 @@ class ResponseHandler
         ResponseHandler();
 
         vector<string> ParseString(string line, string delim);
+
+        void AddSentence (string sentence);
     protected:
     private:
         SearchNode * head;
         bool bSTInitialized;
 
+        SearchNode * eosHelper;
         ResponseNode * end_of_sentence;
 };
 
