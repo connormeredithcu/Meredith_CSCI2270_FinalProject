@@ -38,7 +38,7 @@ int main()
         }
         else if (choice == "6")
         {
-            mimic.DisplayGraph();
+            DisplayWithOptions(&mimic);
         }
         else if (choice == "7")
         {

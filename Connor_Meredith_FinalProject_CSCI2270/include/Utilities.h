@@ -9,6 +9,7 @@ void ReadFileSentences(ResponseHandler * g);
 void GenerateSentence(ResponseHandler * g);
 void GenerateMultiple(ResponseHandler * g);
 void MultipleInteract(ResponseHandler * g);
+void DisplayWithOptions(ResponseHandler * g);
 void SaveAndQuit(ResponseHandler * g);
 
 int StringToInt(string text);

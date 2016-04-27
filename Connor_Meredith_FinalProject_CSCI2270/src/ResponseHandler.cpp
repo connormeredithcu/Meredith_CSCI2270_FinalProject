@@ -274,3 +274,68 @@ void ResponseHandler::DisplayGraph()
 {
     DisplayVerticesEdges(head);
 }
+
+void ResponseHandler::PreDisplayVerticesEdges(SearchNode * current)
+{
+    cout << current->key->key << ": ";
+    for (int i = 0; i < current->key->children.size()-1; i++)
+    {
+        string childName = current->key->children.at(i).child->key;
+        if (childName == "")
+            childName = "END_OF_SENTENCE";
+        int weight = current->key->children.at(i).numTimesParented;
+        cout << "(" << childName << ", " << weight << "), ";
+    }
+    string childName = current->key->children.at(current->key->children.size()-1).child->key;
+    if (childName == "")
+        childName = "END_OF_SENTENCE";
+    int weight = current->key->children.at(current->key->children.size()-1).numTimesParented;
+    cout << "(" << childName << ", " << weight << ").";
+    cout << endl;
+
+    if (current->leftChild)
+    {
+        DisplayVerticesEdges(current->leftChild);
+    }
+    if (current->rightChild)
+    {
+        DisplayVerticesEdges(current->rightChild);
+    }
+}
+
+void ResponseHandler::PostDisplayVerticesEdges(SearchNode * current)
+{
+    if (current->leftChild)
+    {
+        DisplayVerticesEdges(current->leftChild);
+    }
+    if (current->rightChild)
+    {
+        DisplayVerticesEdges(current->rightChild);
+    }
+    cout << current->key->key << ": ";
+    for (int i = 0; i < current->key->children.size()-1; i++)
+    {
+        string childName = current->key->children.at(i).child->key;
+        if (childName == "")
+            childName = "END_OF_SENTENCE";
+        int weight = current->key->children.at(i).numTimesParented;
+        cout << "(" << childName << ", " << weight << "), ";
+    }
+    string childName = current->key->children.at(current->key->children.size()-1).child->key;
+    if (childName == "")
+        childName = "END_OF_SENTENCE";
+    int weight = current->key->children.at(current->key->children.size()-1).numTimesParented;
+    cout << "(" << childName << ", " << weight << ").";
+    cout << endl;
+}
+
+void ResponseHandler::PreDisplayGraph()
+{
+    PreDisplayVerticesEdges(head);
+}
+
+void ResponseHandler::PostDisplayGraph()
+{
+    PostDisplayVerticesEdges(head);
+}

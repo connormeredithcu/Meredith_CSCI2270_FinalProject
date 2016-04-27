@@ -110,6 +110,34 @@ void MultipleInteract(ResponseHandler * g)
 
 }
 
+void DisplayWithOptions(ResponseHandler * g)
+{
+    if (!g->bSTInitialized)
+    {
+        cout << "Sorry, but there is nothing to display. Please enter some sentences or read in a memory file." << endl;
+        return;
+    }
+    cout << "How would you like the BST to be traversed?" << endl
+         << "1. In order"                                 << endl
+         << "2. Post order"                               << endl
+         << "3. Pre order"                                << endl
+         << "> "                                                 ;
+    string choice;
+    cin >> choice;
+    if (choice == "1")
+    {
+        g->DisplayGraph();
+    }
+    else if (choice == "2")
+    {
+        g->PostDisplayGraph();
+    }
+    else if (choice == "3")
+    {
+        g->PreDisplayGraph();
+    }
+}
+
 void SaveAndQuit(ResponseHandler * g)
 {
     string x;
@@ -137,5 +165,4 @@ void SaveAndQuit(ResponseHandler * g)
     }
     else
         cout << "Could not open memory file." << endl;
-
 }

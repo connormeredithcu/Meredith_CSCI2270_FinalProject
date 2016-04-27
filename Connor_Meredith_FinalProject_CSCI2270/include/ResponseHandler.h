@@ -74,6 +74,12 @@ class ResponseHandler
         void DisplayVerticesEdges(SearchNode * current);
         //Perform an in-order traversal of the whole BST to display vertices, edges, and weights in the graph.
         void DisplayGraph();
+        //Same as above, but pre-order
+        void PreDisplayVerticesEdges(SearchNode * current);
+        void PreDisplayGraph();
+        //Same as above, but post-order
+        void PostDisplayVerticesEdges(SearchNode * current);
+        void PostDisplayGraph();
 
         //Helper flag. This tells whether or not any words have been added to the BST.
         bool bSTInitialized;
