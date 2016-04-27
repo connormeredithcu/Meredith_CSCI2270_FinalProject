@@ -9,9 +9,7 @@ int main()
     //mimic.AddSentence("This is a test!");
     //TakeSentence(&mimic);
     ReadFileSentences(&mimic);
-
-    for (int i = 0; i < 30; i++)
-        GenerateSentence(&mimic);
+    MultipleInteract(&mimic);
 
     return 0;
 }

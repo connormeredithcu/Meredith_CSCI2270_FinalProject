@@ -58,6 +58,7 @@ void ResponseHandler::AddSentence(string sentence)
     {
         return;
     }
+    sentences.push_back(sentence);
     vector<string> words = ParseString(sentence, " ");
 
     vector<SearchNode*> wordLocations;

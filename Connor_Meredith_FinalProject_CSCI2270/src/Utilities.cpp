@@ -62,3 +62,29 @@ void GenerateSentence(ResponseHandler * g)
     }
     cout << endl;
 }
+
+int StringToInt(string text)
+{
+    stringstream converter (text);
+    int result;
+    if (!(converter >> result))
+        result = 0;
+    return result;
+}
+
+void MultipleInteract(ResponseHandler * g)
+{
+    string sInteractions;
+    cout << "How many interactions should we have?" << endl
+         << "> "                                           ;
+    cin >> sInteractions;
+    cin.ignore();
+    int numInteractions = StringToInt(sInteractions);
+
+    for (int i = 0; i < numInteractions; i++)
+    {
+        TakeSentence(g);
+        GenerateSentence(g);
+    }
+
+}
