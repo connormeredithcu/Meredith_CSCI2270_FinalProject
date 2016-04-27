@@ -35,8 +35,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/ResponseHandler.h" />
+		<Unit filename="include/Utilities.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ResponseHandler.cpp" />
+		<Unit filename="src/Utilities.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
