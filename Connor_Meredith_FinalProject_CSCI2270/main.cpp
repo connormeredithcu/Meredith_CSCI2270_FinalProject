@@ -10,6 +10,7 @@ int main()
     //TakeSentence(&mimic);
     ReadFileSentences(&mimic);
     MultipleInteract(&mimic);
+    SaveAndQuit(&mimic);
 
     return 0;
 }

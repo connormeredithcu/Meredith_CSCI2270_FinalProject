@@ -66,7 +66,7 @@ class ResponseHandler
 
         ResponseNode * FindExistingWord(string word);
 
-
+        vector<string> sentences;
 
         void DisplayGraph();
     protected:
@@ -80,7 +80,7 @@ class ResponseHandler
         SearchNode * head;
         void DisplayVerticesEdges(SearchNode * current);
 
-        vector<string> sentences;
+
 };
 
 #endif // RESPONSEHANDLER_H

@@ -48,7 +48,10 @@ void ReadFileSentences(ResponseHandler * g)
         g->AddSentence(line);
     }
 
+    infile.close();
+
     cout << "Successfully read in sentences." << endl;
+
 }
 
 void GenerateSentence(ResponseHandler * g)
@@ -86,5 +89,35 @@ void MultipleInteract(ResponseHandler * g)
         TakeSentence(g);
         GenerateSentence(g);
     }
+
+}
+
+void SaveAndQuit(ResponseHandler * g)
+{
+    string x;
+    cout << "Would you like to save this session?" << endl
+         << "1. Yes"                               << endl
+         << "2. No"                                << endl
+         << "> "                                          ;
+    cin >> x;
+    if (x != "1")
+        return;
+
+    cout << "Please enter a filename with no extension in which the session will be saved:" << endl
+         << "> ";
+    string fname;
+    cin >> fname;
+    ofstream outFile (fname + ".txt");
+    if (outFile.is_open())
+    {
+        for (int i = 0; i < g->sentences.size(); i++)
+        {
+            string line = g->sentences.at(i) + "\n";
+            outFile << line;
+        }
+        outFile.close();
+    }
+    else
+        cout << "Could not open memory file." << endl;
 
 }

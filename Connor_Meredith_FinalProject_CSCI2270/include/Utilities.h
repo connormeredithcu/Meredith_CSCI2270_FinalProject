@@ -8,6 +8,7 @@ void TakeSentence(ResponseHandler * g);
 void ReadFileSentences(ResponseHandler * g);
 void GenerateSentence(ResponseHandler * g);
 void MultipleInteract(ResponseHandler * g);
+void SaveAndQuit(ResponseHandler * g);
 
 int StringToInt(string text);
 
