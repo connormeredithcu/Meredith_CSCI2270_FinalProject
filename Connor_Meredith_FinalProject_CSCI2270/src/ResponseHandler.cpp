@@ -191,3 +191,85 @@ void ResponseHandler::AddSentence(string sentence)
     }
 
 }
+
+ResponseNode * ResponseHandler::GetChild(ResponseNode * parent)
+{
+    vector<ResponseChild> choices = parent->children;
+    if (choices.size() == 0)
+        return nullptr;
+    vector<double> weights;
+    vector<int> helper;
+    for (int i = 0; i < choices.size(); i++)
+    {
+        weights.push_back( (double) choices.at(i).numTimesParented);
+    }
+
+    for (int i = 0; i < choices.size(); i++)
+    {
+        for (int j = 0; j < weights.at(i); j++)
+        {
+            helper.push_back(i);
+        }
+    }
+
+    int k = helper.size();
+    int index = rand() % k;
+    return choices.at(helper.at(index)).child;
+}
+
+ResponseNode * ResponseHandler::GetFirst()
+{
+    vector<ResponseChild> choices = firstWords;
+    if (choices.size() == 0)
+        return nullptr;
+    vector<double> weights;
+    vector<int> helper;
+    for (int i = 0; i < choices.size(); i++)
+    {
+        weights.push_back( (double) choices.at(i).numTimesParented);
+    }
+
+    for (int i = 0; i < choices.size(); i++)
+    {
+        for (int j = 0; j < weights.at(i); j++)
+        {
+            helper.push_back(i);
+        }
+    }
+
+    int k = helper.size();
+    int index = rand() % k;
+    return choices.at(helper.at(index)).child;
+}
+
+void ResponseHandler::DisplayVerticesEdges(SearchNode * current)
+{
+    if (current->leftChild)
+    {
+        DisplayVerticesEdges(current->leftChild);
+    }
+    cout << current->key->key << ": ";
+    for (int i = 0; i < current->key->children.size()-1; i++)
+    {
+        string childName = current->key->children.at(i).child->key;
+        if (childName == "")
+            childName = "END_OF_SENTENCE";
+        int weight = current->key->children.at(i).numTimesParented;
+        cout << "(" << childName << ", " << weight << "), ";
+    }
+    string childName = current->key->children.at(current->key->children.size()-1).child->key;
+    if (childName == "")
+        childName = "END_OF_SENTENCE";
+    int weight = current->key->children.at(current->key->children.size()-1).numTimesParented;
+    cout << "(" << childName << ", " << weight << ").";
+    cout << endl;
+    if (current->rightChild)
+    {
+        DisplayVerticesEdges(current->rightChild);
+    }
+}
+
+void ResponseHandler::DisplayGraph()
+{
+    DisplayVerticesEdges(head);
+}

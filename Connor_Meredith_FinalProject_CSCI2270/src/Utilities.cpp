@@ -11,7 +11,8 @@ void DisplayMenu()
          << "2. Read in sentences from a file." << endl
          << "3. Have me say a sentence."        << endl
          << "4. Interact with me for a while."  << endl
-         << "5. Exit program."                  << endl
+         << "5. Display edges and vertices."    << endl
+         << "6. Exit program."                  << endl
          << "> "                                       ;
 }
 
@@ -25,13 +26,14 @@ void TakeSentence(ResponseHandler * g)
     g->AddSentence(sentence);
 }
 
+//This utility function attempts to read in sentences line-by-line from a text file.
 void ReadFileSentences(ResponseHandler * g)
 {
     ifstream infile;
     string fname;
     cout << "Please enter a filename:" << endl
          << "> "                              ;
-    cin >> fname;
+    getline(cin, fname);
     infile.open(fname);
 
     if (!infile.good())
@@ -47,4 +49,16 @@ void ReadFileSentences(ResponseHandler * g)
     }
 
     cout << "Successfully read in sentences." << endl;
+}
+
+void GenerateSentence(ResponseHandler * g)
+{
+    ResponseNode * temp = g->GetFirst();
+    while (temp->key != "")
+    {
+        cout << temp->key;
+        temp = g->GetChild(temp);
+        cout << " ";
+    }
+    cout << endl;
 }

@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <random>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -58,16 +60,25 @@ class ResponseHandler
         void AddSentence (string sentence);
 
         vector<ResponseChild> firstWords;
+
+        ResponseNode * GetChild(ResponseNode * parent);
+        ResponseNode * GetFirst();
+
+        ResponseNode * FindExistingWord(string word);
+
+
+
+        void DisplayGraph();
     protected:
     private:
-        SearchNode * head;
+
         bool bSTInitialized;
 
         SearchNode * eosHelper;
         ResponseNode * end_of_sentence;
 
-        ResponseNode * FindExistingWord(string word);
-
+        SearchNode * head;
+        void DisplayVerticesEdges(SearchNode * current);
 
         vector<string> sentences;
 };

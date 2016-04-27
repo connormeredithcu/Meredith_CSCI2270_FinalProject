@@ -6,5 +6,6 @@
 void DisplayMenu();
 void TakeSentence(ResponseHandler * g);
 void ReadFileSentences(ResponseHandler * g);
+void GenerateSentence(ResponseHandler * g);
 
 #endif // UTILITIES_H_INCLUDED
