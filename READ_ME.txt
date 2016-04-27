@@ -1,3 +1,6 @@
+Repository URL:
+https://github.com/connormeredithcu/Meredith_CSCI2270_FinalProject
+
 Project Summary:
 My final project is a chatterbot/text mimicker. The goal of this project is to make a program that can be given text inputs
 and from these, create new yet grammatical outputs.
