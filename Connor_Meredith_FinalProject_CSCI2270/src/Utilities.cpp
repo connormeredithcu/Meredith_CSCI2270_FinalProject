@@ -6,14 +6,15 @@
 void DisplayMenu()
 {
     cout << endl;
-    cout << "Please select an option below:"    << endl
-         << "1. Enter a sentence."              << endl
-         << "2. Read in sentences from a file." << endl
-         << "3. Have me say a sentence."        << endl
-         << "4. Interact with me for a while."  << endl
-         << "5. Display edges and vertices."    << endl
-         << "6. Exit program."                  << endl
-         << "> "                                       ;
+    cout << "Please select an option below:"        << endl
+         << "1. Enter a sentence."                  << endl
+         << "2. Read in sentences from a file."     << endl
+         << "3. Have me say a sentence."            << endl
+         << "4. Have me say a bunch of sentences."  << endl
+         << "5. Interact with me for a while."      << endl
+         << "6. Display edges and vertices."        << endl
+         << "7. Exit program."                      << endl
+         << "> "                                           ;
 }
 
 //This utility function handles option 1
@@ -56,6 +57,11 @@ void ReadFileSentences(ResponseHandler * g)
 
 void GenerateSentence(ResponseHandler * g)
 {
+    if (!g->bSTInitialized)
+    {
+        cout << "Please enter some sentences first! I don't know how to talk yet." << endl;
+        return;
+    }
     ResponseNode * temp = g->GetFirst();
     while (temp->key != "")
     {
@@ -64,6 +70,18 @@ void GenerateSentence(ResponseHandler * g)
         cout << " ";
     }
     cout << endl;
+}
+
+void GenerateMultiple(ResponseHandler * g)
+{
+    string sNum;
+    cout << "How many sentences should I say?" << endl
+         << "> "                                           ;
+    cin >> sNum;
+    cin.ignore();
+    int intNum = StringToInt(sNum);
+    for (int i = 0; i < intNum; i++)
+        GenerateSentence(g);
 }
 
 int StringToInt(string text)

@@ -65,14 +65,14 @@ class ResponseHandler
         ResponseNode * GetFirst();
 
         ResponseNode * FindExistingWord(string word);
-
+        bool bSTInitialized;
         vector<string> sentences;
 
         void DisplayGraph();
     protected:
     private:
 
-        bool bSTInitialized;
+
 
         SearchNode * eosHelper;
         ResponseNode * end_of_sentence;
