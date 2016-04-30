@@ -81,6 +81,10 @@ vector
 stdlib.h
 sstream
 fstream
+
+***Note for Ubuntu users: Please select the "Have g++ follow the 1998 ISO C++ language standard" under Project->Build Options... before attempting
+to use***
+
 I expect that no work needs to be done by the user to run this program.
 
 System Requirements:
