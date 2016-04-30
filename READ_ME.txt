@@ -84,7 +84,8 @@ fstream
 I expect that no work needs to be done by the user to run this program.
 
 System Requirements:
-This program was written for Windows 8.1.
+This program was written for Windows 8.1, but I have added a version for 64 bit Ubuntu. To use this version (do this if you are using the standard
+CU Boulder VM,) please use the VMAlternateVersion project.
 
 Contributors:
 Connor Meredith
