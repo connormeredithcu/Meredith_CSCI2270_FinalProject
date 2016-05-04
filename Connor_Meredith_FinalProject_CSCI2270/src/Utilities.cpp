@@ -8,12 +8,13 @@ void DisplayMenu()
     cout << endl;
     cout << "Please select an option below:"        << endl
          << "1. Enter a sentence."                  << endl
-         << "2. Read in sentences from a file."     << endl
-         << "3. Have me say a sentence."            << endl
-         << "4. Have me say a bunch of sentences."  << endl
-         << "5. Interact with me for a while."      << endl
-         << "6. Display edges and vertices."        << endl
-         << "7. Exit program."                      << endl
+         << "2. Enter multiple sentences. (WJVP)"   << endl
+         << "3. Read in sentences from a file."     << endl
+         << "4. Have me say a sentence."            << endl
+         << "5. Have me say a bunch of sentences."  << endl
+         << "6. Interact with me for a while."      << endl
+         << "7. Display edges and vertices."        << endl
+         << "8. Exit program."                      << endl
          << "> "                                           ;
 }
 
@@ -165,4 +166,21 @@ void SaveAndQuit(ResponseHandler * g)
     }
     else
         cout << "Could not open memory file." << endl;
+}
+
+//Gives the user an option to input many sentences at once
+//This is William John Van Patten's contribution
+void MultipleInput(ResponseHandler * g)
+{
+    string sInputs2;
+    cout << "How many sentences do you want to input?" << endl
+    << "> " ;
+    cin >> sInputs2;
+    cin.ignore();
+    int numInteractions = StringToInt(sInputs2);
+
+    for (int i = 0; i < numInteractions; i++)
+    {
+        TakeSentence(g);
+    }
 }

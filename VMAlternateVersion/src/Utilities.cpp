@@ -166,3 +166,20 @@ void SaveAndQuit(ResponseHandler * g)
     else
         cout << "Could not open memory file." << endl;
 }
+
+//Gives the user an option to input many sentences at once
+//This is William John Van Patten's contribution
+void MultipleInput(ResponseHandler * g)
+{
+    string sInputs2;
+    cout << "How many sentences do you want to input?" << endl
+    << "> " ;
+    cin >> sInputs2;
+    cin.ignore();
+    int numInteractions = StringToInt(sInputs2);
+
+    for (int i = 0; i < numInteractions; i++)
+    {
+        TakeSentence(g);
+    }
+}

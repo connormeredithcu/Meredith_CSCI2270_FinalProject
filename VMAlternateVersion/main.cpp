@@ -6,41 +6,42 @@ using namespace std;
 int main()
 {
     ResponseHandler mimic = ResponseHandler();
-    //mimic.AddSentence("This is a test!");
-    //TakeSentence(&mimic);
 
     string choice = "";
-    while (choice != "7")
+    while (choice != "8")
     {
         DisplayMenu();
         cin >> choice;
+        cin.ignore();
         if (choice == "1")
         {
-            cin.ignore();
             TakeSentence(&mimic);
         }
         else if (choice == "2")
         {
-            cin.ignore();
-            ReadFileSentences(&mimic);
+            MultipleInput(&mimic);
         }
         else if (choice == "3")
         {
-            GenerateSentence(&mimic);
+            ReadFileSentences(&mimic);
         }
         else if (choice == "4")
         {
-            GenerateMultiple(&mimic);
+            GenerateSentence(&mimic);
         }
         else if (choice == "5")
         {
-            MultipleInteract(&mimic);
+            GenerateMultiple(&mimic);
         }
         else if (choice == "6")
         {
-            DisplayWithOptions(&mimic);
+            MultipleInteract(&mimic);
         }
         else if (choice == "7")
+        {
+            DisplayWithOptions(&mimic);
+        }
+        else if (choice == "8")
         {
             SaveAndQuit(&mimic);
         }

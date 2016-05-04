@@ -21,6 +21,10 @@ void DisplayWithOptions(ResponseHandler * g);
 //Give the user an option to save their interactions in a text file.
 void SaveAndQuit(ResponseHandler * g);
 
+//Gives the user an option to input many sentences at once
+//This is William John Van Patten's contribution
+void MultipleInput(ResponseHandler * g);
+
 //This is a helper function that converts a string to an integer. I didn't use std::stoi(std::string s) because
 //I am not using the c++ 2011 standard.
 int StringToInt(string text);
